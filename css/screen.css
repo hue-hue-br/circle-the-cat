@@ -1,5 +1,5 @@
 body {
-  font-family: Cambria, Georgia, Times, ‘Times New Roman’, serif;
+  font-family: MS Sans Serif, Arial, Helvetica, sans serif;
 }
 p {
   text-align: center;
@@ -34,18 +34,24 @@ canvas {
 }
 
 #panel {
-  background:#fdfdfd;
-  border:2px solid #ccc;
-  display:none;
-  position: absolute;
-  text-align: center;
-  left: 50%;
-  margin-left: -125px;
-  margin-top: 100px;
-  height:150px;
-  width: 250px;
-  opacity:0.95;
-  z-index:1000;
+    border: 2px solid #ccc;
+    display: none;
+    height: 75px;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -50px;
+    opacity: 0.95;
+    position: absolute;
+    text-align: center;
+    width: 500px;
+    z-index: 1000;
+}
+#panel.win{
+	background: #effdef none repeat scroll 0 0;
+}
+
+#panel.lose{
+	background: #fdefef none repeat scroll 0 0;
 }
 
 
@@ -54,7 +60,6 @@ button.awesome, .button.awesome {
 	display: inline-block;
 	padding: 5px 10px 6px;
 	color: #fff;
-  font-family: Cambria, Georgia, Times, ‘Times New Roman’, serif;
 	text-decoration: none;
 	font-weight: bold;
 	line-height: 1;
