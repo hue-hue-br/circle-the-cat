@@ -1,9 +1,12 @@
+var cancelToken = null;
+
 function getMouseButton(e) {
   return(e? e.which: window.event.button);
 }
 
 function Circle(x, y, r) {
   var self = this;
+  
   this.radius = r;
   this.x = x;
   this.y = y;
@@ -116,19 +119,29 @@ function Game(ctx) {
   };
   
   this.winGame = function() {
-    document.getElementById('panelTitle').innerHTML = 'You Win!';
+    document.getElementById('panelTitle').innerHTML = 'Você prendeu o Lula! 🙌';
+	document.getElementById('panel').className = "win";
     $('#panel').fadeIn(function() {});
-    setTimeout(run, 2000);
+	
+	self.board.changeOnWin();
+    cancelToken = setTimeout(run, 10000);
   };
   this.loseGame = function() {
-    document.getElementById('panelTitle').innerHTML = 'You Lose';
+    document.getElementById('panelTitle').innerHTML = 'Você deixou o Lula escapar 😢';
+	document.getElementById('panel').className = "lose";
     $('#panel').fadeIn(function() {});
-    setTimeout(run, 2000);
+	
+	self.board.changeOnLose();
+    cancelToken = setTimeout(run, 10000);
   };
 }
 
 
 function run() {
+  if (cancelToken != null){
+	clearTimeout(cancelToken);
+	cancelToken = null;
+  }
   $('#panel').fadeOut(function() {});
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');

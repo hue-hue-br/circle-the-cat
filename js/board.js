@@ -31,6 +31,20 @@ function Board(ctx) {
     };
   };
   
+  this.changeOnWin = function() {
+	self.img.src = 'win.png';
+    self.img.onload = function(){
+      self.draw();
+    };
+  }
+  
+  this.changeOnLose = function() {
+	self.img.src = 'lose.png';
+    self.img.onload = function(){
+      self.draw();
+    };
+  }
+  
   this.setUpGrid = function() {
     self.grid = [];
     for (var i = 0; i < self.numOfBlocks; i++) {
@@ -72,11 +86,146 @@ function Board(ctx) {
   this.draw = function() {
     self.ctx.clearRect(0,0,550,430);
 
+	var grd = self.ctx.createLinearGradient(0.000, 430.000, 550.000, 430.000);
+      
+	// Add colors
+	grd.addColorStop(0.0000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.0043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.0126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.0209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.0292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.0375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.0458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.0541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.0624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.0707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.0790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.0873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.0960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.1000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.1043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.1126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.1209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.1292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.1375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.1458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.1541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.1624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.1707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.1790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.1873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.1960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.2000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.2043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.2126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.2209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.2292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.2375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.2458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.2541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.2624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.2707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.2790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.2873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.2960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.3000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.3043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.3126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.3209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.3292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.3375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.3458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.3541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.3624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.3707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.3790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.3873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.3960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.4000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.4043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.4126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.4209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.4292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.4375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.4458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.4541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.4624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.4707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.4790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.4873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.4960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.5000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.5043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.5126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.5209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.5292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.5375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.5458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.5541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.5624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.5707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.5790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.5873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.5960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.6000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.6043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.6126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.6209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.6292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.6375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.6458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.6541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.6624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.6707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.6790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.6873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.6960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.7000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.7043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.7126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.7209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.7292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.7375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.7458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.7541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.7624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.7707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.7790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.7873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.7960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.8000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.8043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.8126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.8209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.8292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.8375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.8458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.8541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.8624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.8707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.8790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.8873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.8960, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.9000, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.9043, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.9126, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.9209, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.9292, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.9375, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.9458, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.9541, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.9624, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.9707, 'rgba(255, 255, 255, 1.000)');
+	grd.addColorStop(0.9790, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.9873, 'rgba(0, 0, 0, 1.000)');
+	grd.addColorStop(0.9960, 'rgba(255, 255, 255, 1.000)');
+	
     for (var i = 0; i < self.numOfBlocks; i++) {
       for (var j = 0; j < self.numOfBlocks; j++) {
         self.ctx.beginPath();
         if (self.grid[i][j].fill === true) {
-          self.ctx.fillStyle = 'rgb(0,126,143)';
+		
+          self.ctx.fillStyle = grd;
         }
         else {
           self.ctx.fillStyle = 'rgb(120,191,229)';
