@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset=utf-8>
-    <title>Circle the Cat</title>
+    <title>Prenda o Lula</title>
     <script src="js/detectmobilebrowser.js" type="text/javascript"></script>
 
     <script src='js/circle_the_cat.js' type='text/javascript'></script>
@@ -15,15 +15,13 @@
     <link rel="stylesheet" type="text/css" href="css/screen.css" />
   </head>
   <body onload="startUp();">
-    <h1>Circle the Cat</h1>
-    <h3>CANVAS STYLE</h3>
-    <!--script type="text/javascript" src="js/useragent.js"></script-->
-    <p>Try to circle the cat with the dark blue dots without letting the cat get away.</p>
+    <h1>Prenda o Lula</h1>
+    <p>Tente prender o Lula clicando nas bolinhas azuis, sem deixar que o Lula fuja!</p>
 
 
   	<div id="panel"><h2 id="panelTitle"></h2></div>
     <canvas id="canvas" width="550" height="430"></canvas>
-    <div id="buttonArea"><button class="large awesome red" type="submit" onClick="run()">Reset</button></div>
+    <div id="buttonArea"><button class="large awesome red" type="submit" onClick="run()">Recomeçar</button></div>
 		<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -34,5 +32,6 @@
 		pageTracker._trackPageview();
 		} catch(err) {}
 		</script>
+		<h3>Baseado em <a href="https://github.com/lnakamura/circle-the-cat">Circle the Cat - Canvas Style</a></h3>
   </body>
 </html>

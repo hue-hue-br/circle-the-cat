@@ -1,8 +1,6 @@
-Circle the Cat
+Prenda o Lula
 ========
 
-Circle the Cat is an experiment with the canvas HTML5 element.  It is a javascript recreation of the [Circle the Cat](http://members.shaw.ca/gf3/circle-the-cat.html) Flash game.
+Vc consegue prender o homem mais ensaboado do Brasil, ou ele vai escapar novamente?
 
-The goal is to encircle the cat, without letting it get out.  Click on the light blue dots to try to trap it with dark blue dots.
-
-Created by [Liane Nakamura](http://lianenakamura.com).
+Baseado em Circle the Cat, de Liane Nakamura(http://lianenakamura.com)
